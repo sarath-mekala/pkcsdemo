@@ -44,6 +44,7 @@ IP.1 = 192.168.56.101
 ```
 
 Here DNS.1 = www.pkcsdemo.com is one DNS alternative name we are supplying to the certificate. Similarly, you can give more DNS alt names via DNS.2, DNS.3 e.t.c
+
 IP.1 = 192.168.56.101 is the IP address that I am binding to the certificate. **You should alter it based on your setup.**
 
 
@@ -57,14 +58,16 @@ The following changes are done in this file:
 * DocumentRoot "/usr/local/apache2/htdocs"  (from host copy public-html folder here)
 
 #### To enable SSL/HTTPS
-The generated certificates should get copied to /usr/local/apache2/conf/ and httpd.conf should be configured to pick them from this location. The POC copies the following certificates to this location:
+The generated certificates should get copied to /usr/local/apache2/conf/ and httpd.conf 
+should be configured to pick them from this location. The POC copies the following certificates 
+to this location:
  * server.crt
  * server.key
 
 In addition, enable the following lines:
-	* LoadModule ssl_module modules/mod_ssl.so
+ * LoadModule ssl_module modules/mod_ssl.so
  * LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
-	* Include conf/extra/httpd-ssl.conf
+ * Include conf/extra/httpd-ssl.conf
 
 ```
 ### httpd-ssl.conf
@@ -83,8 +86,8 @@ Once you clone this project, go to its root folder and do the following to build
 * docker build -t pkcsdemo .
 * docker run -d -p 8080:80 -p 8443:443 --name pkcsdemo pkcsdemo
 
--p 8080:80 : port maps the host machines 8080 port to the container's 80 port
--p 8443:443 : port maps the host machines 8443 port to the container's 443 port
+> -p 8080:80 : port maps the host machines 8080 port to the container's 80 port
+> -p 8443:443 : port maps the host machines 8443 port to the container's 443 port
 
 ## Configuring Firefox/Chrome with the RootCA certificate
 In order to validate the signed server certificates sent by the demo container during SSL handshake, the browser needs to have the RootCA certificate registered with it.
