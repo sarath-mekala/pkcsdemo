@@ -1,6 +1,9 @@
 # PKCS (Private Root CA + Signed Private Certificates)
 
-This container is a POC to understand the process of generating your own Private Root CA and then signing your own digital certificates.
+This project demonstrates the process of generating your own Private Root CA and then signing your digital certificates with it. It generates a docker container using httpd:2.4 images as the base, which can then be deployed and tested.
+
+## Prerequisites
+* Docker
 
 The project has the following structure:
 ```
