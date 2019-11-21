@@ -103,3 +103,11 @@ In order to validate the signed server certificates sent by the demo container d
 
 ### Chrome
 * Goto Settings -> Advanced -> Privacy & Security -> Authorities -> Click on 'Import' and select the rootCA.crt file.
+
+## Configuring local DNS
+In order to reach the container on www.pkcsdemo.com we need to set dns entry in /etc/hosts file.
+```
+# My hostip is mapped to the DNS name
+192.168.56.101  www.pkcsdemo.com
+```
+
